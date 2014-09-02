@@ -6,5 +6,7 @@ class Size
     
   attr_reader :x, :y  
 
+  #width y height
+
 end   
 end
