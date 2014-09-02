@@ -13,6 +13,7 @@ class Report
     @images = {}
     @image_names_replacements = {}
     @sections = []
+    @image_size = {}
 
     yield(self)
 
@@ -46,8 +47,11 @@ class Report
     yield(sec)
   end
 
-  def add_image(name, path)
+  def add_image(name, path, x, y)
+    @size = Size.new(x, y)
+    @image_size[name] = @size
     @images[name] = path
+    puts @images
   end
 
   def generate(dest = nil)
