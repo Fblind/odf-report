@@ -22,20 +22,22 @@ module ODFReport
          if node = content.xpath("//draw:frame[@draw:name='#{image_name}']").first
 
           width = content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:width").first
-          width.text = "#{size.x}cm"
-          puts width.text
+          puts "Antes de cambiar el width #{width.content}"
+          width.content = "#{size.x}cm"
+          puts "despues de cambiar el width #{width.content}"
           height = content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:height").first
-          height.text = "#{size.y}cm"
-          puts height
+          puts "Antes de cambiar el height #{height.content}"
+          height.content = "#{size.y}cm"
+          puts "Antes de cambiar el width #{height.content}"
 
 
 
-           placeholder_width = node['svg:width']
+           #placeholder_width = node['svg:width']
            #node.attribute('svg:width').value
-           placeholder_height = node['svg:height']
+           #placeholder_height = node['svg:height']
            #node.attribute('svg:height').value
-           @image_size_replacements["#{size.x}cm"] = placeholder_width
-           @image_size_replacements["#{size.y}cm"] = placeholder_height
+           #@image_size_replacements["#{size.x}cm"] = placeholder_width
+           #@image_size_replacements["#{size.y}cm"] = placeholder_height
          end
       end
 
