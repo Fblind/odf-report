@@ -18,7 +18,6 @@ module ODFReport
         end
       end
 
-      puts "HOLA"
       @image_size.each_pair do |image_name, size|
          if node = content.xpath("//draw:frame[@draw:name='#{image_name}']").first
 
@@ -34,14 +33,15 @@ module ODFReport
            #node.attribute('svg:width').value
            placeholder_height = node['svg:height']
            #node.attribute('svg:height').value
-           @image_size_replacements[size.x] = "#{placeholder_width}cm"
-           @image_size_replacements[size.y] = "#{placeholder_height}cm"
+           @image_size_replacements["#{size.x}cm"] = placeholder_width
+           @image_size_replacements["#{size.y}cm"] = placeholder_height
          end
       end
 
     end
 
     def replace_images(file)
+      puts "ENTRO AL REPLACE"
 
       return if @images.empty?
 
