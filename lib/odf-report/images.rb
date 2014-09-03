@@ -22,13 +22,18 @@ module ODFReport
       @image_size.each_pair do |image_name, size|
          if node = content.xpath("//draw:frame[@draw:name='#{image_name}']").first
 
-          with = content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:width").first
+          width = content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:width").first
           puts width
+          height = content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:height").first
+          puts height
+
 
           puts node.attribute('@svg:width')
 
-           placeholder_width = node.attribute('svg:width').value
-           placeholder_height = node.attribute('svg:height').value
+           placeholder_width = node['svg:width']
+           #node.attribute('svg:width').value
+           placeholder_height = node['svg:height']
+           #node.attribute('svg:height').value
            @image_size_replacements[size.x] = "#{placeholder_width}cm"
            @image_size_replacements[size.y] = "#{placeholder_height}cm"
          end
