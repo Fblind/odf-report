@@ -46,11 +46,13 @@ module ODFReport
             content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:width").each{ |width|
               if !(size.width == 0)
                 width.content = "#{size.width}cm"
+              end
             }
             
             content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:height").each{ |height|
               if !(size.height == 0)
                 height.content = "#{size.height}cm"  
+              end
             }
 
       end
@@ -63,11 +65,13 @@ module ODFReport
             content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:x").each{ |x|
               if !(coord.x == 0)
                 x.content = "#{coord.x}cm"
+              end
             }
             
             content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:y").each{ |y|
               if !(coord.y == 0)
-                y.content = "#{coord.y}cm"  
+                y.content = "#{coord.y}cm"
+              end
             }
 
       end
