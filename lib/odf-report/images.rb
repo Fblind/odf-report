@@ -44,7 +44,7 @@ module ODFReport
       @image_size.each_pair do |image_name, size|
           
         content.xpath("//draw:frame[@draw:name='#{image_name}']").each{ |node|
-            "ENTRO"
+            puts "ENTRO"
             width = content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:width").first          
             width.content = "#{size.x}cm"
 
