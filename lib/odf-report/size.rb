@@ -1,10 +1,10 @@
 module ODFReport
 	class Size  
-	  def initialize(x,y)  
-	    @x, @y = width, height 
+	  def initialize(width,height)  
+	    @width, @height = width, height 
 	  end  
 	    
-	  attr_reader :x, :y  
+	  attr_reader :width, :height
 
 	end   
 end
