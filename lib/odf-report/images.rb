@@ -17,7 +17,7 @@ module ODFReport
 
       puts "HOLA"
       @image_size.each_pair do |image_name, size|
-         if node = content.xpath("//draw:frame[@draw:name='#{image_name}']/draw:image").first
+         if node = content.xpath("//draw:frame[@draw:name='#{image_name}']").first
 
           puts node
            placeholder_width = node.attribute('svg:width').value
