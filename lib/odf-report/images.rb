@@ -11,6 +11,9 @@ module ODFReport
       @images.each_pair do |image_name, path|
         if node = content.xpath("//draw:frame[@draw:name='#{image_name}']/draw:image").first
           placeholder_path = node.attribute('href').value
+
+          puts placeholder_path
+
           @image_names_replacements[path] = ::File.join(IMAGE_DIR_NAME, ::File.basename(placeholder_path))
         end
       end
@@ -19,7 +22,8 @@ module ODFReport
       @image_size.each_pair do |image_name, size|
          if node = content.xpath("//draw:frame[@draw:name='#{image_name}']").first
 
-          puts node["svg:width"]
+          with = content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:width").first
+          puts width
 
           puts node.attribute('@svg:width')
 
