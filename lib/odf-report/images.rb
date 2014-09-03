@@ -44,19 +44,34 @@ module ODFReport
       @image_size.each_pair do |image_name, size|
           
             content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:width").each{ |width|
-              width.content = "#{size.x}cm"
+              if !(size.width == 0)
+                width.content = "#{size.width}cm"
             }
             
             content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:height").each{ |height|
-              height.content = "#{size.y}cm"  
+              if !(size.height == 0)
+                height.content = "#{size.height}cm"  
             }
 
       end
-
     end
+    
+    def find_and_replace_coord(content)
 
+      @image_coords.each_pair do |image_name, coord|
 
+            content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:x").each{ |x|
+              if !(coord.x == 0)
+                x.content = "#{coord.x}cm"
+            }
+            
+            content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:y").each{ |y|
+              if !(coord.y == 0)
+                y.content = "#{coord.y}cm"  
+            }
 
+      end
+    end
 
   end
 
