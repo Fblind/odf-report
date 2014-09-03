@@ -18,8 +18,8 @@ module ODFReport
           if node = content.xpath("//draw:frame[@draw:name='#{image_name}']/draw:image").first
             placeholder_width = node.attribute('svg:width').value
             placeholder_height = node.attribute('svg:height').value
-            @image_size_replacements[size.x] = placeholder_width
-            @image_size_replacements[size.y] = placeholder_height
+            @image_size_replacements[size.x] = "#{placeholder_width}cm"
+            @image_size_replacements[size.y] = "#{placeholder_height}cm"
           end
 
         end
