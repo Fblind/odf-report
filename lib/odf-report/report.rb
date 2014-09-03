@@ -48,9 +48,9 @@ class Report
     yield(sec)
   end
 
-  def add_image(name, path)
-    @images[name] = path
-  end
+  #def add_image(name, path)
+  #  @images[name] = path
+  #end
   
   def add_image(name, path, x, y)
     @size = Size.new(x, y)
