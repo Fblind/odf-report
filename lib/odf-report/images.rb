@@ -19,8 +19,10 @@ module ODFReport
       @image_size.each_pair do |image_name, size|
          if node = content.xpath("//draw:frame[@draw:name='#{image_name}']").first
 
-          puts node
+          puts node["svg:width"]
+
           puts node.attribute('@svg:width')
+
            placeholder_width = node.attribute('svg:width').value
            placeholder_height = node.attribute('svg:height').value
            @image_size_replacements[size.x] = "#{placeholder_width}cm"
