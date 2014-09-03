@@ -47,6 +47,8 @@ module ODFReport
 
       @image_names_replacements.each_pair do |path, template_image|
 
+        puts "template image #{template_image}"
+        puts "path #{path}"
         file.output_stream.put_next_entry(template_image)
         file.output_stream.write ::File.read(path)
 
