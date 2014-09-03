@@ -6,6 +6,8 @@ module ODFReport
 
     def find_image_name_matches(content)
 
+      puts @image_size
+      puts @images
       @images.each_pair do |image_name, path|
         if node = content.xpath("//draw:frame[@draw:name='#{image_name}']/draw:image").first
           placeholder_path = node.attribute('href').value
@@ -16,6 +18,8 @@ module ODFReport
       puts "HOLA"
       @image_size.each_pair do |image_name, size|
          if node = content.xpath("//draw:frame[@draw:name='#{image_name}']/draw:image").first
+
+          puts node
            placeholder_width = node.attribute('svg:width').value
            placeholder_height = node.attribute('svg:height').value
            @image_size_replacements[size.x] = "#{placeholder_width}cm"
