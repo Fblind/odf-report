@@ -47,8 +47,6 @@ module ODFReport
 
       @image_names_replacements.each_pair do |path, template_image|
 
-        puts "template image #{template_image}"
-        puts "path #{path}"
         file.output_stream.put_next_entry(template_image)
         file.output_stream.write ::File.read(path)
 
@@ -56,8 +54,11 @@ module ODFReport
 
       @image_size_replacements.each_pair do |size, placeholder|
 
+        puts size
+        puts placeholder
+        
         file.output_stream.put_next_entry(placeholder)
-        file.output_stream.write ::File.read(size)
+        file.output_stream.write size
 
       end
 
