@@ -43,14 +43,13 @@ module ODFReport
 
       @image_size.each_pair do |image_name, size|
           
-        content.xpath("//draw:frame[@draw:name='#{image_name}']").each{ |node|
-            puts "ENTRO"
-            width = content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:width").first          
-            width.content = "#{size.x}cm"
-
-            height = content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:height").first
-            height.content = "#{size.y}cm"    
-          }
+            content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:width").each{ |width|
+              width.content = "#{size.x}cm"
+            }
+            
+            content.xpath("//draw:frame[@draw:name='#{image_name}']/@svg:height").each{ |height|
+              height.content = "#{size.y}cm"  
+            }
 
       end
 
