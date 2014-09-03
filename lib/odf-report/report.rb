@@ -72,6 +72,7 @@ class Report
           @texts.each    { |t| t.replace!(doc) }
           @fields.each   { |f| f.replace!(doc) }
 
+          find_and_replace_size(doc)
           find_image_name_matches(doc)
           avoid_duplicate_image_names(doc)
 
