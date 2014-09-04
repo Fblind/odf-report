@@ -40,6 +40,7 @@ module ODFReport
     end
 
     def find_and_replace_size(content)
+      #TODO: ask for nil
 
       @image_size.each_pair do |image_name, size|
           
@@ -59,6 +60,7 @@ module ODFReport
     end
     
     def find_and_replace_coord(content)
+      #TODO: ask for nil
 
       @image_coords.each_pair do |image_name, coord|
 
@@ -76,6 +78,23 @@ module ODFReport
 
       end
     end
+
+    def delete_extra_images(doc)
+      #TODO: ask for nil
+      #TODO: how I can delete xml openoffice
+
+      @images_to_delete.each{ |image_name|
+
+        #content.xpath("//draw:frame[@draw:name='#{image_name}']").each{ |image|
+        #  image.
+        #}
+
+
+      }
+      
+    end
+
+
 
   end
 

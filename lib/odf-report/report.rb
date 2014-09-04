@@ -14,6 +14,8 @@ class Report
     @image_names_replacements = {}
     @sections = []
     @image_size = {}
+    @images_to_delete
+    @texts_to_delete
 
     yield(self)
 
@@ -47,15 +49,23 @@ class Report
     yield(sec)
   end
 
-  #def add_image(name, path)
-  #  @images[name] = path
-  #end
-  
-  def add_image(name, path, width, height)
-    @size = Size.new(width, height)
-    @image_size[name] = @size
+  def add_image(name, path)
     @images[name] = path
   end
+  
+  def change_image_size(name, width, height)
+    @size = Size.new(width, height)
+    @image_size[name] = @size
+  end
+
+  def add_extra_images_to_delete(images_to_delete)
+    @images_to_delete = images_to_delete
+  end
+
+  def add_extra_texts_to_delete(texts_to_delete)
+    @texts_to_delete = texts_to_delete
+  end
+
 
   def generate(dest = nil)
 
@@ -73,6 +83,8 @@ class Report
 
           find_and_replace_size(doc)
           find_image_name_matches(doc)
+          #delete_extra_images(doc)
+          #delete_extra_text(recibe un array con nombre de los textos)          
           avoid_duplicate_image_names(doc)
 
         end
