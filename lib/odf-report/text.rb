@@ -22,6 +22,7 @@ module ODFReport
 
     def self.delete_extra_text(doc, texts_to_delete)
       texts_to_delete.each{ |text|
+        puts text
         doc.xpath(".//text:p[text()='#{text}']").first.remove
       }
       
