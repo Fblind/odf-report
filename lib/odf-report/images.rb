@@ -85,12 +85,13 @@ module ODFReport
 
       @images_to_delete.each{ |image_name|
 
-        content.xpath("//draw:frame[@draw:name='#{image_name}']/draw:image/@xlink:href").each{ |image|
-          image.content = ''
-        }
+        #content.xpath("//draw:frame[@draw:name='#{image_name}']/draw:image/@xlink:href").each{ |image|
+        #  image.content = ''
+        #}
 
         content.xpath("//draw:frame[@draw:name='#{image_name}']/draw:image").each{ |image|
-          image = nil
+          puts image
+          image.remove
         }
 
 
