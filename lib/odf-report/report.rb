@@ -83,7 +83,7 @@ class Report
 
           find_and_replace_size(doc)
           find_image_name_matches(doc)
-          #delete_extra_images(doc)
+          delete_extra_images(doc)
           #delete_extra_text(recibe un array con nombre de los textos)          
           avoid_duplicate_image_names(doc)
 
