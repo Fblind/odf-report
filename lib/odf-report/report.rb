@@ -64,7 +64,6 @@ class Report
 
   def add_extra_texts_to_delete(texts_to_delete)
     @texts_to_delete = texts_to_delete
-    puts @texts_to_delete
   end
 
 
@@ -85,7 +84,7 @@ class Report
           find_and_replace_size(doc)
           find_image_name_matches(doc)
           delete_extra_images(doc)
-          Text.delete_extra_text(doc)
+          Text.delete_extra_text(doc, @texts_to_delete)
           avoid_duplicate_image_names(doc)
 
         end
