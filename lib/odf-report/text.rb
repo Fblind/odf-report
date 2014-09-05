@@ -23,8 +23,8 @@ module ODFReport
     def self.delete_extra_text(doc, texts_to_delete)
       texts_to_delete.each{ |text|
         puts "texto para eliminar #{text}"
-        puts doc.xpath(".//text:p[text()='[#{text.to_s.upcase}]']").first
-        doc.xpath(".//text:p[text()='[#{text.to_s.upcase}]']").first.remove
+        puts "DOC first: #{doc.xpath(".//text:p[text()='[#{text.to_s.upcase}]']").first}"
+        doc.xpath(".//text:p[text()='[#{text.to_s.upcase}]']").remove
       }
       
     end
