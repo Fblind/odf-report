@@ -85,10 +85,9 @@ module ODFReport
 
       @images_to_delete.each{ |image_name|
 
-        #content.xpath("//draw:frame[@draw:name='#{image_name}']").each{ |image|
-        #  image.
-        #}
-
+        content.xpath("//draw:frame[@draw:name='#{image_name}']/draw:image").each{ |image|
+          image.attribute('href').content = ''
+        }
 
       }
       
