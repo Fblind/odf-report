@@ -79,7 +79,7 @@ module ODFReport
       end
     end
 
-    def delete_extra_images(doc)
+    def delete_extra_images(content)
       #TODO: ask for nil
       #TODO: how I can delete xml openoffice
 
