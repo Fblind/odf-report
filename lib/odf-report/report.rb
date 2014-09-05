@@ -64,6 +64,7 @@ class Report
 
   def add_extra_texts_to_delete(texts_to_delete)
     @texts_to_delete = texts_to_delete
+    puts @texts_to_delete
   end
 
 
