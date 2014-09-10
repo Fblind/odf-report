@@ -81,7 +81,9 @@ class Report
           @texts.each    { |t| t.replace!(doc) }
           @fields.each   { |f| f.replace!(doc) }
 
-          find_and_replace_size(doc)
+          if !@image_size.empty?
+            find_and_replace_size(doc)
+          end
           find_image_name_matches(doc)
           delete_extra_images(doc)
           Text.delete_extra_text(doc, @texts_to_delete)
