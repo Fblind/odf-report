@@ -21,7 +21,9 @@ module ODFReport
     end
 
     def self.delete_extra_text(doc, texts_to_delete)
+      puts "Los texts del xml= #{texts_to_delete}"
       texts_to_delete.each{ |text|
+        puts "#{doc.xpath(".//text:p[text()='[#{text.to_s.upcase}]']")}"
         doc.xpath(".//text:p[text()='[#{text.to_s.upcase}]']").remove
       }
       
