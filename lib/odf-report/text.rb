@@ -26,6 +26,7 @@ module ODFReport
         puts "#{doc.xpath(".//text:p[text()='[#{text.to_s.upcase}]']")}"
         puts "#{doc.xpath(".//text:p/text:span[text()='#{text.to_s.upcase}]']")}"
         doc.xpath(".//text:p[text()='[#{text.to_s.upcase}]']").remove
+        doc.xpath(".//text:p/text:span[text()='[#{text.to_s.upcase}]']").remove
       }
       
     end
